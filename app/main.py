@@ -43,9 +43,10 @@ def shop_trip() -> None:
                 products_cost = shop.get_price_of_cart(customer.product_cart)
                 final_cost = round(ride_cost + products_cost["full_amount"], 2)
 
-                print(f"{
-                    customer.name
-                }'s trip to the {shop.name} costs {final_cost}")
+                print(
+                    f"{customer.name}'s trip to "
+                    f"the {shop.name} costs {final_cost}"
+                )
 
                 if cheapest_store[0] is not None:
                     if cheapest_store[0] > final_cost:
@@ -55,9 +56,8 @@ def shop_trip() -> None:
 
             if customer.money < cheapest_store[0]:
                 print(
-                    f"{
-                        customer.name
-                    } doesn't have enough money to make a purchase in any shop"
+                    f"{customer.name} doesn't have enough"
+                    f" money to make a purchase in any shop"
                 )
             else:
                 print(f"{customer.name} rides to {cheapest_store[1].name}")
@@ -74,19 +74,13 @@ def shop_trip() -> None:
                     product_name, price
                 ) in cheapest_store[2]["detailed"].items():
                     print(
-                        f"{
-                            customer.product_cart[product_name]
-                        } {
-                            product_name
-                        }s for {price} {get_currency(price)}"
+                        f"{customer.product_cart[product_name]} {product_name}"
+                        f"s for {price} {get_currency(price)}"
                     )
 
                 print(
-                    f"Total cost is {
-                        cheapest_store[2]["full_amount"]
-                    } {
-                        get_currency(cheapest_store[0])
-                    }"
+                    f"Total cost is {cheapest_store[2]["full_amount"]} "
+                    f"{get_currency(cheapest_store[0])}"
                 )
                 print("See you again!")
                 print("")
