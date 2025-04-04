@@ -63,7 +63,8 @@ def shop_trip() -> None:
                 print(f"{customer.name} rides to {cheapest_store[1].name}")
                 now = datetime.datetime.now()
                 print("")
-                print(f"Date: {now.strftime("%d/%m/%Y %H:%M:%S")}")
+                time_formatted = now.strftime("%d/%m/%Y %H:%M:%S")
+                print(f"Date: {time_formatted}")
 
                 customer.money = round(customer.money - cheapest_store[0], 2)
 
@@ -77,9 +78,9 @@ def shop_trip() -> None:
                         f"{customer.product_cart[product_name]} {product_name}"
                         f"s for {price} {get_currency(price)}"
                     )
-
+                full_amount = cheapest_store[2]["full_amount"]
                 print(
-                    f"Total cost is {cheapest_store[2]["full_amount"]} "
+                    f"Total cost is {full_amount} "
                     f"{get_currency(cheapest_store[0])}"
                 )
                 print("See you again!")
