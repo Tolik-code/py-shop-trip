@@ -29,9 +29,8 @@ def shop_trip() -> None:
                 return "dollar" if float(amount) == 1.0 else "dollars"
 
             print(
-                f"{
-                    customer.name
-                } has {customer.money} {get_currency(customer.money)}"
+                f"{customer.name} has {customer.money} "
+                f"{get_currency(customer.money)}"
             )
 
             cheapest_store = [None, None, None]
